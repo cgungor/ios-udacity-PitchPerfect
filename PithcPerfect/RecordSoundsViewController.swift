@@ -11,7 +11,7 @@ import AVFoundation
 
 var audioRecorder: AVAudioRecorder!
 
-class RecordSoundsViewController: UIViewController {
+class RecordSoundsViewController: UIViewController , AVAudioRecorderDelegate {
     @IBOutlet weak var recordButton: UIButton!
 
     @IBOutlet weak var stopButton: UIButton!
@@ -42,6 +42,7 @@ class RecordSoundsViewController: UIViewController {
         try! session.setCategory(AVAudioSessionCategoryPlayAndRecord)
         
         try! audioRecorder = AVAudioRecorder(url: filePath!, settings: [:])
+        audioRecorder.delegate = self
         audioRecorder.isMeteringEnabled = true
         audioRecorder.prepareToRecord()
         audioRecorder.record()
@@ -51,7 +52,7 @@ class RecordSoundsViewController: UIViewController {
         statusLabel.text = "Tap to record..."
         stopButton.isEnabled = false
         recordButton.isEnabled = true
-       
+        
         audioRecorder.stop()
         let audioSession = AVAudioSession.sharedInstance()
         try! audioSession.setActive(false)
@@ -60,6 +61,11 @@ class RecordSoundsViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         stopButton.isEnabled = false
     }
+    
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+        print("AVAudioRecorder finished saving recording")
+    }
+    
     
 }
 
