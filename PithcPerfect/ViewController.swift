@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var statusLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +21,13 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func recordAudio(_ sender: AnyObject) {
+        statusLabel.text = "Recording..."
+    }
 
+    @IBAction func stopRecording(_ sender: AnyObject) {
+        statusLabel.text = "Audio saved";
+        print("Stop recording")
+    }
 }
 
