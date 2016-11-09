@@ -66,10 +66,10 @@
             </objects>
             <point key="canvasLocation" x="972" y="37.331334332833585"/>
         </scene>
-        <!--View Controller-->
+        <!--Play Sounds View Controller-->
         <scene sceneID="MfX-7w-5AM">
             <objects>
-                <viewController id="0mT-78-XrF" sceneMemberID="viewController">
+                <viewController id="0mT-78-XrF" customClass="PlaySoundsViewController" customModule="PithcPerfect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="atO-uq-a8i"/>
                         <viewControllerLayoutGuide type="bottom" id="3NB-ST-fOQ"/>
